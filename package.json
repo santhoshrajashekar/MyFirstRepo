@@ -5,7 +5,8 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "express": "^4"
+    "express": "^4",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
@@ -17,7 +18,16 @@
     "watch-poapp": "cds watch --open poapp.poapp/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
-  "cds": {},
+  "cds": {
+    "server": {
+      "index": true
+    },
+    "requires": {
+      "[production]": {
+        "auth": "xsuaa"
+      }
+    }
+  },
   "workspaces": [
     "app/*"
   ],

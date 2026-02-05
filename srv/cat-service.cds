@@ -1,5 +1,5 @@
 using { poapp.db as poapp } from '../db/datamodel';
-service CatalogService  {
+service CatalogService @(path:'CatalogService', require: 'authenticated-user')  {
     entity EmployeService as projection on poapp.master.employees;
     entity ProductService as projection on poapp.master.product;
      entity BusinessPartnerService as projection on poapp.master.businesspartner;
